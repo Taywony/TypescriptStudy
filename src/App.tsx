@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Store from './Store';
 import { Restaurant } from './model/restaurant';
+import './App.css';
+import BestMenu from './BestMenu';
 
 let data:Restaurant = {
   name:'tays food',
@@ -20,13 +20,14 @@ let data:Restaurant = {
 const App:React.FC = () => {
   const [myrestaurant,setMyrestaurant] = useState<Restaurant>(data)
 
-  const changeAddress = (newAddress:any) => {
-    setMyrestaurant((prev) => ({...myrestaurant,address:newAddress}))
+  const changeAddress = (address:any) => {
+    setMyrestaurant((prev) => ({...myrestaurant,address:address}))
   }
 
   return (
     <div className="App">
-      <Store info={myrestaurant} />
+      <Store info={myrestaurant} address={changeAddress} />
+      <BestMenu name='어향가지' category={high} price={25000} />
     </div>
   );
 }
