@@ -1,8 +1,17 @@
 import React from 'react'
+import { Menu } from './model/restaurant'
 
-const BestMenu:React.FC = () => {
+interface OwnProps extends Menu {
+  showBestMenu(name:string):string
+}
+
+const BestMenu:React.FC<OwnProps> = ({name, price, showBestMenu}) => {
   return (
-    <div>BestMenu</div>
+    <div>
+      <h1>베스트메뉴</h1>
+      <p>{name}</p>
+      <p>가격 : {price.toLocaleString()}</p>
+    </div>
   )
 }
 

@@ -7,6 +7,6 @@ export type Restaurant = {
 
 export type Menu = {
   id :number;
-  list :string;
+  name :string;
   price :number;
 }
